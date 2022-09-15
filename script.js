@@ -25,8 +25,10 @@ const typeController = (e) => {
 
   // Handle backspace press
   if (newLetter == "Backspace") {
+
     userText = userText.slice(0, userText.length - 1);
     return display.removeChild(display.lastChild);
+    
   }
 
   // these are the valid character we are allowing to type
@@ -34,7 +36,9 @@ const typeController = (e) => {
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890!@#$%^&*()_+-={}[]'\".,?";
 
   // if it is not a valid character like Control/Alt then skip displaying anything
+ 
   if (!validLetters.includes(newLetter)) {
+       
     return;
   }
 
@@ -46,13 +50,26 @@ const typeController = (e) => {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
+   
+    if(!validLetters.includes(newLetter)===false){
+     // newLetter.innerHTML='';
+    
+        errorCount++;
+      const errCountInNumber=errorCount;
+    
+      console.log(errCountInNumber);
+       //console.log(errorCount);
+         
+     }
   }
 
   // check if given question text is equal to user typed text
+
+
   if (questionText === userText) {
     gameOver();
   }
-};
+ };
 
 const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
@@ -103,7 +120,7 @@ const start = () => {
   // If already started, do not start again
   if (startTime) return;
 
-  let count = 3;
+  let count = 1;
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
