@@ -62,7 +62,12 @@ body {
   display: none;
 }
 #result {
-  position: fixed;
+  position:fixed;
+  margin-top: 15vw;
+  margin-left: 39vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   top: 10%; 
   left: 10%;
   transform: translate(-50%, -50%);
