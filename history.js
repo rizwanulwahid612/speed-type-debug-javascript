@@ -32,17 +32,17 @@ function displayHistory() {
     newRow.innerHTML = `
 
 
-  <div>
+  
   <h3>${test.questionText}</h3>
-  </div>
+  
 
-  <div>
+  
   <p>You took: <span class="bold">${test.timeTaken.toFixed(0)}</span> seconds</p>
-  </div>
+  
 
-    <div>
+    
     <p>You made <span class="bold red">${test.errorCount.toFixed(0)}</span> mistakes</p>
-    </div>
+    
 
 
   `;
