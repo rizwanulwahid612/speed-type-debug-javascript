@@ -17,6 +17,7 @@ fetch("./texts.json")
   .then((data) => {
     questionText = data[Math.floor(Math.random() * data.length)];
     question.innerHTML = questionText;
+   // location.reload();
   });
 
 // checks the user typed character and displays accordingly
@@ -67,8 +68,11 @@ const typeController = (e) => {
 
 
   if (questionText === userText) {
+    
+   // 
     gameOver();
   }
+  
  };
 
 const validate = (key) => {
@@ -112,11 +116,13 @@ const gameOver = () => {
 };
 
 const closeModal = () => {
+  location.reload();
   modalBackground.classList.toggle("hidden");
   resultModal.classList.toggle("hidden");
 };
 
 const start = () => {
+  
   // If already started, do not start again
   if (startTime) return;
 
@@ -139,19 +145,20 @@ const start = () => {
     count--;
   }, 1000);
 };
-
+//
 // START Countdown
 startBtn.addEventListener("click", start);
+//location.reload();
 console.log(startBtn);
 
 // If history exists, show it
 displayHistory();
-
+ 
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
   const timeSpent = Math.round((currentTime - startTime) / 1000);
-
+  
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
 }, 1000);
